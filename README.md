@@ -1,4 +1,4 @@
-# `ctrlc-wrapper`
+# ctrlc-wrapper
 
 Windows doesn't support sending signals to other processes as it is possible on POSIX platforms.
 
