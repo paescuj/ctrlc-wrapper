@@ -1,0 +1,16 @@
+{
+  "name": "ctrlc-wrapper-windows-64",
+  "version": "0.0.1",
+  "description": "Windows 64-bit binary files for ctrlc-wrapper",
+  "repository": "paescuj/ctrlc-wrapper",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ]
+}

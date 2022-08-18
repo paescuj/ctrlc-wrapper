@@ -1,0 +1,41 @@
+{
+  "name": "ctrlc-wrapper",
+  "version": "0.0.1",
+  "description": "Wrapper enabling to send CTRL+C signal to child process",
+  "keywords": [
+    "ctrlc",
+    "windows",
+    "signal"
+  ],
+  "repository": "paescuj/ctrlc-wrapper",
+  "author": {
+    "name": "Pascal Jufer",
+    "email": "pascal-jufer@bluewin.ch",
+    "url": "https://paescuj.ch/"
+  },
+  "funding": "https://github.com/paescuj/ctrlc-wrapper?sponsor=1",
+  "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build:ctrlc:32": "GOOS=windows GOARCH=386 go build -o ./packages/ctrlc-wrapper-windows-32 ./cmd/ctrlc",
+    "build:ctrlc:64": "GOOS=windows GOARCH=amd64 go build -o ./packages/ctrlc-wrapper-windows-64 ./cmd/ctrlc",
+    "build:start:32": "GOOS=windows GOARCH=386 go build -o ./packages/ctrlc-wrapper-windows-32 ./cmd/start",
+    "build:start:64": "GOOS=windows GOARCH=amd64 go build -o ./packages/ctrlc-wrapper-windows-64 ./cmd/start",
+    "build:js": "tsc",
+    "build": "concurrently pnpm:build:*"
+  },
+  "optionalDependencies": {
+    "ctrlc-wrapper-windows-32": "workspace:*",
+    "ctrlc-wrapper-windows-64": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.6",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  }
+}

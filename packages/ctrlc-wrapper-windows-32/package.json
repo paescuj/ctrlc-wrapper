@@ -1,0 +1,16 @@
+{
+  "name": "ctrlc-wrapper-windows-32",
+  "version": "0.0.1",
+  "description": "Windows 32-bit binary files for ctrlc-wrapper",
+  "repository": "paescuj/ctrlc-wrapper",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "ia32"
+  ]
+}
