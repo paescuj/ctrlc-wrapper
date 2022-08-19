@@ -1,6 +1,6 @@
 {
   "name": "ctrlc-wrapper",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Wrapper enabling to send CTRL+C signal to child process",
   "keywords": [
     "ctrlc",
