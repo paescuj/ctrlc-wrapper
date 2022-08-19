@@ -67,7 +67,7 @@ pnpm build
 
 ### Why the separate `ctrlc.exe` binary?
 
-Initially, I've tried to send the CTRL+C signal directly from within `start.exe`, but this resulted in loss of some output from the child process (during `FreeConsole` -> `AttachConsole`). There might be a workaround for this...
+It would be possible to send the CTRL+C signal directly from within `start.exe` but this means an additional process must be spawned (e.g. `cmd /c pause`) to prevent losing the original (parent) console during the console switch (`FreeConsole` -> `AttachConsole`). Using a separate binary to send the CTRL+C signal is much safer.
 
 ### `CREATE_NEW_CONSOLE` vs. `CREATE_NEW_PROCESS_GROUP`
 
@@ -77,4 +77,4 @@ However, spawning the child with `CREATE_NEW_PROCESS_GROUP` would mean that we n
 
 ### `CreateRemoteThread`
 
-Instead of `ctrlc.exe` we might be able to terminate the target process by inject a thread into it, but this seems to be overly complicated.
+Instead of `ctrlc.exe` we might be able to terminate the target process by inject a thread into it, but this seems to be overly complicated...

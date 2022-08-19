@@ -4,6 +4,12 @@
   "description": "Windows 64-bit binary files for ctrlc-wrapper",
   "repository": "paescuj/ctrlc-wrapper",
   "license": "MIT",
+  "scripts": {
+    "build:ctrlc": "GOOS=windows GOARCH=amd64 go build ../../cmd/ctrlc",
+    "build:start": "GOOS=windows GOARCH=amd64 go build ../../cmd/start",
+    "build": "concurrently pnpm:build:*",
+    "prepublishOnly": "pnpm build"
+  },
   "engines": {
     "node": ">=12"
   },

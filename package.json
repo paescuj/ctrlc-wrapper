@@ -22,12 +22,8 @@
     "index.d.ts"
   ],
   "scripts": {
-    "build:ctrlc:32": "GOOS=windows GOARCH=386 go build -o ./packages/ctrlc-wrapper-windows-32 ./cmd/ctrlc",
-    "build:ctrlc:64": "GOOS=windows GOARCH=amd64 go build -o ./packages/ctrlc-wrapper-windows-64 ./cmd/ctrlc",
-    "build:start:32": "GOOS=windows GOARCH=386 go build -o ./packages/ctrlc-wrapper-windows-32 ./cmd/start",
-    "build:start:64": "GOOS=windows GOARCH=amd64 go build -o ./packages/ctrlc-wrapper-windows-64 ./cmd/start",
-    "build:js": "tsc",
-    "build": "concurrently pnpm:build:*"
+    "build": "tsc",
+    "prepublishOnly": "pnpm build"
   },
   "optionalDependencies": {
     "ctrlc-wrapper-windows-32": "workspace:*",
