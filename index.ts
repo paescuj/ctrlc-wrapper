@@ -4,7 +4,7 @@ import {
   ChildProcessWithoutNullStreams,
 } from 'child_process';
 
-interface WrapperChildProcessWithoutNullStreams
+export interface WrapperChildProcessWithoutNullStreams
   extends ChildProcessWithoutNullStreams {
   sendCtrlC(): void;
 }
