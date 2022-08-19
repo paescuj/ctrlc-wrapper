@@ -4,7 +4,7 @@ import {
   ChildProcessWithoutNullStreams,
 } from 'child_process';
 
-export interface WrapperChildProcessWithoutNullStreams
+interface WrapperChildProcessWithoutNullStreams
   extends ChildProcessWithoutNullStreams {
   sendCtrlC(): void;
 }
@@ -51,14 +51,16 @@ function spawnWithWrapper(
     args,
     options
   ) as WrapperChildProcessWithoutNullStreams;
-  child.sendCtrlC = () => {
-    if (process.platform === 'win32') {
-      child.stdin.write('^C\n');
-    } else {
-      child.kill('SIGINT');
-    }
-  };
+  child.sendCtrlC = () => sendCtrlC(child);
   return child;
 }
 
-export { spawnWithWrapper };
+function sendCtrlC(child: ChildProcessWithoutNullStreams): void {
+  if (process.platform === 'win32') {
+    child.stdin.write('^C\n');
+  } else {
+    child.kill('SIGINT');
+  }
+}
+
+export { spawnWithWrapper, sendCtrlC, WrapperChildProcessWithoutNullStreams };
