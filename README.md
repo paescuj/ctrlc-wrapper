@@ -2,7 +2,7 @@
 
 Windows doesn't support sending signals to other processes as it is possible on POSIX platforms.
 
-Using kill methods on Windows (like `process.kill()` with Node.js) means the target process is getting killed forcefully and abruptly (similar to `SIGKILL`).
+Using kill methods on Windows (like `process.kill()` from Node.js) means the target process is getting killed forcefully and abruptly (similar to `SIGKILL`).
 
 However, in a console, processes can be terminated with the `CTRL`+`C` key combination.  
 Most programming languages have an implementation to capture this event (usually as `SIGINT`), allowing applications to handle it and to terminate "gracefully".
