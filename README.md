@@ -14,7 +14,7 @@ The problem is that the `CTRL`+`C` key combination cannot be easily simulated fo
 
 This wrapper application does exactly the points described above.
 
-The wrapper inherits the exit code from the child process. If there's an error with the wrapper itself, the exit code is `-1`.
+The wrapper inherits `stdout`, `stderr` and the exit code from the child process and forwards `stdin` to it. If there's an error with the wrapper itself, the exit code is `-1`.
 
 ## Usage
 
