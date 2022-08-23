@@ -5,7 +5,7 @@ Windows doesn't support sending signals to other processes as it is possible on 
 Using kill methods on Windows (like `process.kill()` with Node.js) means the target process is getting killed forcefully and abruptly (similar to `SIGKILL`).
 
 However, in a console, processes can be terminated with the `CTRL`+`C` key combination.  
-Most programming languages have an implementation to capture this signal (usually as `SIGINT`), allowing applications to handle it and to terminate "gracefully".
+Most programming languages have an implementation to capture this event (usually as `SIGINT`), allowing applications to handle it and to terminate "gracefully".
 
 The problem is that the `CTRL`+`C` key combination cannot be easily simulated for the following reasons:
 
