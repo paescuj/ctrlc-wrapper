@@ -8,11 +8,7 @@
     "signal"
   ],
   "repository": "paescuj/ctrlc-wrapper",
-  "author": {
-    "name": "Pascal Jufer",
-    "email": "pascal-jufer@bluewin.ch",
-    "url": "https://paescuj.ch/"
-  },
+  "author": "Pascal Jufer",
   "funding": "https://github.com/paescuj/ctrlc-wrapper?sponsor=1",
   "license": "MIT",
   "main": "index.js",
