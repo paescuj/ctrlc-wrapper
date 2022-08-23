@@ -54,7 +54,7 @@ go run ./cmd/start node test/read-echo.js
 To terminate:
 
 - Press `CTRL`+`C`
-- Write `^C` to `stdin`
+- Write `^C` to `stdin` (captured by the wrapper)
 - Exit from within the child
 
 ## Build
@@ -67,11 +67,11 @@ pnpm build
 
 ### Why the separate `ctrlc.exe` binary?
 
-It would be possible to send the CTRL+C signal directly from within `start.exe` but this means an additional process must be spawned (e.g. `cmd /c pause`) to prevent losing the original (parent) console during the console switch (`FreeConsole` -> `AttachConsole`). Using a separate binary to send the CTRL+C signal is much safer.
+It would be possible to send the CTRL+C signal directly from within `start.exe` but this means an additional process must be spawned (e.g. `cmd /c pause`) to prevent losing the original (parent) console during the console switch (`FreeConsole` -> `AttachConsole`). Using a separate binary to send the CTRL+C signal is the safer approach.
 
 ### `CREATE_NEW_CONSOLE` vs. `CREATE_NEW_PROCESS_GROUP`
 
-Both methods seems to protect from receiving the CTRL+C signal in the current console.
+Both methods seem to protect from receiving the CTRL+C signal in the current console.
 
 However, spawning the child with `CREATE_NEW_PROCESS_GROUP` would mean that we need to start another "wrapper" in which the "normal processing of CTRL+C input" is enabled first (via `SetConsoleCtrlHandler`) before starting the actual child process.
 
