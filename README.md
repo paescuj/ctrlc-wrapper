@@ -19,7 +19,7 @@ The wrapper inherits `stdout`, `stderr` and the exit code from the child process
 ## Usage
 
 ```console
-npm install ctrlc-wrapper
+npm install ctrlc-wrapper --save-dev
 ```
 
 ```js
